@@ -1,0 +1,69 @@
+<h2>Hi!! my name is kamal karolya </h2>
+<!-- <textarea rows="6" [value]="'Write here'" #postInput > </textarea> -->
+<hr>
+<!-- <mat-card>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="enteredtitle" >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Messege</mat-label>
+    <textarea matInput rows="6" [(ngModel)]="enteredcontent" placeholder="Write here" > </textarea>
+
+  </mat-form-field>
+  <button mat-raised-button color="accent"  (click) ="AddPost()" >Save</button>
+
+</mat-card> -->
+<!-- <p> {{ NewPost }} </p> -->
+
+
+<!-- text form approach -->
+<!--
+<mat-card  >
+  <mat-spinner *ngIf="isLoading" ></mat-spinner>
+  <form (submit)="AddPost(formDet)" #formDet="ngForm" *ngIf="!isLoading"  >
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput type="text" name="title" required [ngModel]="post?.title"  #title="ngModel" >
+      <mat-error *ngIf="title.invalid">Please enter some title </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Messege</mat-label>
+      <textarea matInput rows="6" [ngModel]="post?.content" name="content" required placeholder="Write here"  #content="ngModel" > </textarea>
+      <mat-error *ngIf="content.invalid">Please enter some content </mat-error>
+    </mat-form-field>
+    <div class="imageBox" >
+      <button mat-stroked-button type="button" (click)="imagePicker.click()"  >Pick Image  </button>
+
+      <input type="file" #imagePicker >
+    </div>
+    <button mat-raised-button color="accent" type="submit" >Save</button>
+
+  </form>
+
+</mat-card> -->
+
+
+<!-- Reactive form approach -->
+<mat-card  >
+  <mat-spinner *ngIf="isLoading" ></mat-spinner>
+  <form [formGroup]="form" (submit)="AddPost()" *ngIf="!isLoading"  >
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput type="text" formControlName="title"  name="title"   >
+      <mat-error *ngIf="form.get('title')?.invalid">Please enter some title </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Messege</mat-label>
+      <textarea matInput rows="6"  name="content" formControlName="content"   placeholder="Write here"  > </textarea>
+      <mat-error *ngIf="form.get('content')?.invalid">Please enter some content </mat-error>
+    </mat-form-field>
+    <div class="imagePreview" *ngIf="imagePreview!== '' && imagePreview && form.get('image')?.valid " >
+    <img [src]="imagePreview" [alt]="form.value.title">
+    </div>
+    <div class="imageBox" >
+      <button mat-stroked-button type="button" (click)="imagePicker.click()"  >Pick Image  </button>
+      <input type="file" #imagePicker  (change)="onImagePick($event)" >
+    </div>
+    <button mat-raised-button color="accent" type="submit" >Save</button>
+  </form>
+</mat-card>

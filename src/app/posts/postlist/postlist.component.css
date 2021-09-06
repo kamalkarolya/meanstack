@@ -1,0 +1,30 @@
+mat-accordion{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 75vh;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+mat-expansion-panel{
+  margin-top:1rem ;
+  width: 50%;
+}
+.error-text{
+  font-size: 2rem;
+  padding-top: 2rem;
+}
+mat-spinner{
+  margin:auto;
+}
+.image img{
+  margin: 0 0 10px 0px;
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+mat-paginator{
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+}

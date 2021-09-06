@@ -1,0 +1,51 @@
+<div class="head" >
+  Signup
+</div>
+
+<mat-card  >
+
+
+  <form (submit)="onSignup(signupDet)" #signupDet="ngForm" *ngIf="!isLoading"  >
+    <mat-spinner  *ngIf="isLoading"  ></mat-spinner>
+    <mat-form-field appearance="fill" >
+      <mat-label>Full Name</mat-label>
+      <input matInput type="text" name="fname" required ngModel #fname="ngModel" >
+      <mat-error *ngIf="fname.invalid" >Please enter full name </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" >
+      <mat-label>Phone</mat-label>
+      <input matInput type="phone" name="phone" ngModel #cphone="ngModel" required  >
+      <mat-error *ngIf="cphone.invalid" >Please enter valid number </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" >
+      <mat-label>Occupation</mat-label>
+      <input matInput type="text" name="occupation"  ngModel #occupation="ngModel" required  >
+      <mat-error *ngIf="occupation.invalid" >Please enter occupation </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" >
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email"  ngModel #signmail="ngModel" required email >
+      <mat-error *ngIf="signmail.invalid" >Please enter valid Email </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="password"  ngModel #signPass="ngModel" required  >
+      <mat-error *ngIf="signPass.invalid" >Please enter valid password </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm Password</mat-label>
+
+      <input matInput type="password" name="cpassword" required  ngModel #signCpass="ngModel" >
+      <mat-error *ngIf="signCpass.invalid" >Password didn't match </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="submit" >Signup</button>
+
+  </form>
+
+</mat-card>

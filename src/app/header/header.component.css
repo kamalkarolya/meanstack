@@ -1,0 +1,13 @@
+.spacer{
+  flex:1 1 auto;
+}
+a{
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+ul{
+  list-style: none;
+  display: flex;
+}

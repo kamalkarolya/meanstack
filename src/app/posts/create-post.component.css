@@ -1,0 +1,27 @@
+textarea{
+  width: 100%;
+}
+form{
+  display: flex;
+ flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+mat-form-field{
+  width: 40%;
+}
+mat-spinner{
+  margin:auto;
+}
+input[type="file"]{
+  display: none;
+}
+
+.imagePreview{
+  height: 2rem;
+}
+.imagePreview img {
+  height: 100%;
+
+}
+
