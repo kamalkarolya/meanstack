@@ -17,7 +17,7 @@ mongoose.connect(`mongodb+srv://kamalkarolya:${mongoPass}@registration.bjkkk.mon
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use("/images",express.static(path.join("images")));
-app.use("/",express.static(path.join(__dirname + '/dist/angular')));
+app.use(express.static(__dirname + '/dist/angular'));
 
 
 app.use((req,res,next)=>{
@@ -31,7 +31,8 @@ app.use((req,res,next)=>{
 
 app.use("/api/posts",postRoute );
 app.use("/api/user",userRoute );
-app.use((req,res,next)=>{
-  res.sendFile(path.join(__dirname,"angular","index.html"));
+app.use("/",(req,res,next)=>{
+  // res.sendFile(path.join(__dirname+"angular"+"index.html"));
+  res.sendFile(path.join(__dirname+'/dist/angular/index.html'));
 })
 module.exports = app;
